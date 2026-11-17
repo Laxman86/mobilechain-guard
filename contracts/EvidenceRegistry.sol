@@ -43,6 +43,14 @@ contract EvidenceRegistry {
         uint256 timestamp
     );
 
+    event CustodyTransferred(
+        string indexed evidenceId,
+        address indexed previousCustodian,
+        address indexed newCustodian,
+        string notes,
+        uint256 timestamp
+    );
+
     modifier onlyOwner() {
         require(msg.sender == contractOwner, "Unauthorized: Only contract owner can perform this action");
         _;
@@ -102,6 +110,23 @@ contract EvidenceRegistry {
 
         emit IntegrityVerified(_evidenceId, isIntact, block.timestamp);
         return isIntact;
+    }
+
+    /**
+     * @dev Transfers or updates the chain-of-custody handler for an evidence record.
+     */
+    function transferCustody(
+        string memory _evidenceId,
+        address _newCustodian,
+        string memory _notes
+    ) public {
+        require(evidenceRegistry[_evidenceId].exists, "Error: Evidence ID not found in the registry.");
+        require(_newCustodian != address(0), "Error: Invalid new custodian address.");
+
+        address previousCustodian = evidenceRegistry[_evidenceId].examiner;
+        evidenceRegistry[_evidenceId].examiner = _newCustodian;
+
+        emit CustodyTransferred(_evidenceId, previousCustodian, _newCustodian, _notes, block.timestamp);
     }
 
     /**

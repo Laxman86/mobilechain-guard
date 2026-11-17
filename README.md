@@ -1,57 +1,35 @@
-# Sample Hardhat 3 Project (`mocha` and `ethers`)
+# 🛡️ MobileChain-Guard
 
-This project showcases a Hardhat 3 project using `mocha` for tests and the `ethers` library for Ethereum interactions.
+Automated Android Evidence Triage, Blockchain Anchoring & Chain-of-Custody Audit System. Designed for secure digital forensics, immutable chain-of-custody tracking, and tamper-detection verification backed by Ethereum smart contracts.
 
-To learn more about Hardhat 3, please visit the [Getting Started guide](https://hardhat.org/docs/getting-started#getting-started-with-hardhat-3). To share your feedback, join our [Hardhat 3](https://hardhat.org/hardhat3-telegram-group) Telegram group or [open an issue](https://github.com/NomicFoundation/hardhat/issues/new) in our GitHub issue tracker.
+---
 
-## Project Overview
+## 🛠️ Tech Stack & Architecture
+* **Backend:** Python, Flask, Web3.py
+* **Smart Contract:** Solidity, Hardhat, Ethereum Local Node
+* **Frontend:** HTML5, CSS3, JavaScript (Responsive Dashboard)
+* **Forensics:** SHA-256 cryptographic hashing for evidence file integrity and metadata verification
 
-This example project includes:
+---
 
-- A simple Hardhat configuration file.
-- Foundry-compatible Solidity unit tests.
-- TypeScript integration tests using `mocha` and ethers.js
-- Examples demonstrating how to connect to different types of networks, including locally simulating OP mainnet.
+##  System Walkthrough & UI Preview
 
-## Usage
+Here is a quick visual tour of **MobileChain-Guard** in action:
 
-### Running Tests
+| Feature / Interface | Description | Screenshot |
+| :--- | :--- | :--- |
+| **Main Dashboard** | Overview of the forensic suite interface for evidence handling and chain-of-custody. | ![Dashboard UI](docs/screenshots/mobilechain-guard-dashboard-ui.png) |
+| **Evidence Ingestion** | Form input capturing Case ID, extracted artifact path, examiner ID, and device metadata. | ![Ingestion Form](docs/screenshots/mobilechain-guard-evidence-ingestion-form.png) |
+| **On-Chain Anchoring** | Successful cryptographic hashing and immutable registration on the Ethereum smart contract. | ![Registration Success](docs/screenshots/mobilechain-guard-evidence-registration-success.png) |
+| **Integrity Verification** | Real-time tamper-detection audit check confirming evidence authenticity against the ledger. | ![Integrity Verified](docs/screenshots/mobilechain-guard-integrity-verification-success.png) |
+| **Custody Transfer** | Secure on-chain hand-off logging the transfer of evidence custody to a new examiner address. | ![Custody Transfer](docs/screenshots/mobilechain-guard-custody-transfer-success.png) |
+| **Audit Report (Authentic)** | Official courtroom-ready forensic audit report verifying genuine file integrity. | ![Audit Report](docs/screenshots/mobilechain-guard-courtroom-audit-report.png) |
+| **Audit Report (Tampered)** | Security alert triggered on the report when a hash mismatch or tampering is detected. | ![Tamper Alert](docs/screenshots/mobilechain-guard-tamper-detection-alert.png) |
 
-To run all the tests in the project, execute the following command:
+---
 
-```shell
-npx hardhat test
-```
+##  Quick Start
 
-You can also selectively run the Solidity or `mocha` tests:
-
-```shell
-npx hardhat test solidity
-npx hardhat test mocha
-```
-
-### Make a deployment to Sepolia
-
-This project includes an example Ignition module to deploy the contract. You can deploy this module to a locally simulated chain or to Sepolia.
-
-To run the deployment to a local chain:
-
-```shell
-npx hardhat ignition deploy ignition/modules/Counter.ts
-```
-
-To run the deployment to Sepolia, you need an account with funds to send the transaction. The provided Hardhat configuration includes a Configuration Variable called `SEPOLIA_PRIVATE_KEY`, which you can use to set the private key of the account you want to use.
-
-You can set the `SEPOLIA_PRIVATE_KEY` variable using the `hardhat-keystore` plugin or by setting it as an environment variable.
-
-To set the `SEPOLIA_PRIVATE_KEY` config variable using `hardhat-keystore`:
-
-```shell
-npx hardhat keystore set SEPOLIA_PRIVATE_KEY
-```
-
-After setting the variable, you can run the deployment with the Sepolia network:
-
-```shell
-npx hardhat ignition deploy --network sepolia ignition/modules/Counter.ts
-```
+1. **Start Hardhat Local Node:**
+   ```bash
+   npx hardhat node
