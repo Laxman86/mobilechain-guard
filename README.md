@@ -42,35 +42,3 @@ mobilechain-guard/
 ├── verify_cli.py                 # Integrity verification & tamper-detection CLI
 ├── mmssms.db                     # Simulated mobile evidence artifact (Git-ignored)
 └── README.md
-
----
-
-##  Project Showcase & UI Walkthrough
-
-### 1. Main GUI Dashboard
-Overview of the forensic suite interface designed for seamless evidence handling, tracking, and management.
-![Dashboard UI](docs/screenshots/mobilechain-guard-dashboard-ui.png)
-
-### 2. Evidence Ingestion Form
-Form input interface capturing Case ID, extracted artifact path, examiner ID, and device metadata prior to hashing.
-![Ingestion Form](docs/screenshots/mobilechain-guard-evidence-ingestion-form.png)
-
-### 3. On-Chain Registration Success
-Successful cryptographic SHA-256 calculation and immutable registration recorded directly on the Ethereum smart contract.
-![Registration Success](docs/screenshots/mobilechain-guard-evidence-registration-success.png)
-
-### 4. Integrity Verification & Tamper Detection
-Real-time audit check confirming evidence authenticity against the immutable ledger.
-![Integrity Verified](docs/screenshots/mobilechain-guard-integrity-verification-success.png)
-
-### 5. Secure Custody Transfer
-Secure on-chain hand-off logging the transfer of evidence custody to a new examiner address.
-![Custody Transfer](docs/screenshots/mobilechain-guard-custody-transfer-success.png)
-
-### 6. Courtroom-Ready Authentic Audit Report
-Official forensic report verifying genuine file integrity and matching hashes for legal presentation.
-![Audit Report](docs/screenshots/mobilechain-guard-courtroom-audit-report.png)
-
-### 7. Tamper Detection Alert
-Security alert triggered on the audit report when a hash mismatch or evidence tampering is detected.
-![Tamper Alert](docs/screenshots/mobilechain-guard-tamper-detection-alert.png)
